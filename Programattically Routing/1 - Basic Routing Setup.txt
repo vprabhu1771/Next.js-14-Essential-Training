@@ -1,0 +1,76 @@
+Create Folder Under src -> app
+
+for eg:
+
+products
+
+inside products folder create file called page.tsx
+
+page.tsx
+
+export default function Products(){
+    return <h1>products page</h1>
+}
+
+URL
+
+http://localhost:3000/products
+
+
+let's create another folder inside products -> [productsid]
+
+inside [productsid] folder create file called page.tsx
+
+'use client'
+import { Metadata } from "next";
+import { useRouter } from "next/navigation";
+
+
+
+
+type props = {
+    params: { productsid: string }
+}
+
+
+// export const generateMetadata = ({params}:props):Metadata=>{
+//     return {
+//         title: `product ${params.productsid}`,
+//     }
+// }
+// export const generateMetadata = async ({ params }: props): Promise<Metadata> => {
+//     const title = await new Promise((resolve) => {
+//         setTimeout(() => {
+//             resolve(`iphone ${params.productsid}`)
+//         }, 20)
+//     });
+
+//     return {
+//         title: `product ${title}`,
+//     }
+// }
+
+
+
+
+export default function ProductsDetail(
+    { params }: props
+) {
+    const router = useRouter()
+    const handleClick = () => {
+        alert('Order Placed')
+        router.push('/')
+    }
+    return (
+
+        <div>
+            <h1>products Detail about {params.productsid}</h1>
+            <button onClick={handleClick}>Book Order</button>
+        </div>
+    );
+
+}
+
+URL
+
+http://localhost:3000/products/2

@@ -1,0 +1,9 @@
+https://stackoverflow.com/questions/75771598/npx-create-next-applatest-is-giving-errors
+
+I had the same issues, I tried several things it didn't work. What work was there is no npm folder in AppData/Roaming/ so I created
+
+npm folder in Roaming
+
+.../AppData/Roaming/npm
+
+and it works

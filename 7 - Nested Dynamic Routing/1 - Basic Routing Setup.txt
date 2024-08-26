@@ -1,0 +1,81 @@
+Create Folder Under src -> app
+
+for eg:
+
+products
+
+inside products folder create file called page.tsx
+
+page.tsx
+
+export default function Products(){
+    return <h1>products page</h1>
+}
+
+URL
+
+http://localhost:3000/products
+
+
+let's create another folder inside products -> [productsid]
+
+inside [productsid] folder create file called page.tsx
+
+export default function ProductsDetail(
+    {params}:{params:{productsid:string}}
+)
+{
+    return (
+    <div>
+        <h1>products Detail about {params.productsid}</h1>
+    </div>
+    );
+
+}
+
+URL
+
+http://localhost:3000/products/2
+
+
+
+let's create another folder inside products -> [productsid] -> reviews
+
+inside reviews folder create file called page.tsx
+
+import Link from "next/link";
+
+export default function Reviews(){
+    const reviewsId = 100
+
+    return (
+        <>
+            <h1>reviews page</h1>
+            <Link href={'reviews/1'}>reviews1</Link>
+            <Link href={'reviews/2'}>reviews2</Link>
+            <Link href={'reviews/3'}>reviews3</Link>
+            <Link href={`reviews/${reviewsId}`} replace>reviews100</Link>
+        </>
+    )
+}
+
+URL
+
+http://localhost:3000/products/2/reviews
+
+
+let's create another folder inside products -> [productsid] -> reviews -> [reviewid]
+
+inside [reviewid] folder create file called page.tsx
+
+export default function ReviewId({params,}:{params:{productsid:string,reviewid:string}}){
+    return(
+        <div>
+            <h1>review {params.reviewid} for product {params.productsid}</h1>
+        </div>
+    )
+}
+
+URL
+
+http://localhost:3000/products/2/reviews/1
